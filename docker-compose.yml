@@ -1,0 +1,31 @@
+version:  '3'
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    container_name: spring-boot-rest-docker_mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=estudos
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    volumes:
+      - /var/lib/mysql
+    ports:
+      - 3308:3306
+  web:
+    image: spring-boot-rest-docker
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql 
+    ports:
+      - 8181:8180
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_USER: root
+      DATABASE_NAME: estudos
+      DATABASE_PORT: 3306
+    links:
+      - mysql:mysql
