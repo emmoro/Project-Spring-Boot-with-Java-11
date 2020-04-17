@@ -13,3 +13,7 @@ IDE used was the eclipse.
 ## Tests
 Unit testing was used with the resources of JUnit 5, MockMvc, TestRestTemplate and h2database.
 </br>
+
+## Swagger information
+Address for accessing Swagger in the application when it is up: http://localhost:8180/swagger-ui.html
+</br>
