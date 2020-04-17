@@ -25,7 +25,7 @@ services:
     environment:
       DATABASE_HOST: mysql
       DATABASE_USER: root
-      DATABASE_NAME: estudos
+      DATABASE_NAME: test
       DATABASE_PORT: 3306
     links:
       - mysql:mysql
