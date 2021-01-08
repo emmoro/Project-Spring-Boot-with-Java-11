@@ -32,7 +32,7 @@ public class CarEndpoint {
 		this.carService = carService;
 	}
 	
-	@PostMapping(path ="saveCar")
+	@PostMapping
 	@Transactional
 	@ApiOperation(value ="Saves car object information.", response = CarTO.class)
 	public ResponseEntity<?> saveCar(@Valid @RequestBody CarTO car) {	
@@ -44,7 +44,7 @@ public class CarEndpoint {
 		}
 	}
 	
-	@GetMapping(path = "listAll")
+	@GetMapping
 	@ApiOperation(value ="Search all available cars.", response = CarTO[].class)
 	public ResponseEntity<?> listAll() {
 		try {
@@ -55,7 +55,7 @@ public class CarEndpoint {
 		}
 	}
 	
-	@GetMapping(path = "findCarById/{id}")
+	@GetMapping(path = "/{id}")
 	@ApiOperation(value ="Search car through ID.", response = CarTO.class)
 	public ResponseEntity<?> findCarById(@PathVariable("id") Long id) {
 		try {
@@ -85,7 +85,7 @@ public class CarEndpoint {
 		}
 	}
 	
-	@PostMapping(path = "updateCar")
+	@PutMapping
 	@Transactional
 	@ApiOperation(value ="Update data the car.", response = CarTO.class)
 	public ResponseEntity<?> updateCar(@Valid @RequestBody CarTO car) {
@@ -97,7 +97,7 @@ public class CarEndpoint {
 		}
 	}
 	
-	@DeleteMapping(path ="deleteCar/{id}")
+	@DeleteMapping(path ="/{id}")
 	@Transactional
 	@ApiOperation(value ="Delete the information the car.", response = Void.class)
 	public ResponseEntity<?> deleteCar(@PathVariable("id") Long id) {
